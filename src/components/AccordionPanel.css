@@ -1,0 +1,94 @@
+.accordion {
+  border: 1.5px solid #000;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.accordion--disabled {
+  border-color: #e0e0e0;
+}
+
+.accordion__header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  width: 100%;
+  padding: 16px 20px;
+  background: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.15s ease;
+}
+
+.accordion__header:hover {
+  background: #f5f5f5;
+}
+
+.accordion--disabled .accordion__header {
+  cursor: not-allowed;
+}
+.accordion--disabled .accordion__header:hover {
+  background: #fff;
+}
+
+.accordion__number {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #aaa;
+  min-width: 14px;
+}
+
+.accordion__title {
+  font-family: "Manrope", sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  flex: 1;
+}
+
+.accordion--disabled .accordion__title,
+.accordion--disabled .accordion__number,
+.accordion--disabled .accordion__icon {
+  color: #ddd;
+}
+
+.accordion__icon {
+  font-size: 12px;
+  color: #000;
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.accordion__icon--open {
+  transform: rotate(90deg);
+}
+
+/* Тело аккордеона — grid trick для анимации */
+.accordion__body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.35s ease;
+}
+
+.accordion--open .accordion__body {
+  grid-template-rows: 1fr;
+}
+
+/* Контент — overflow:hidden обязателен для grid trick */
+.accordion__content {
+  overflow: hidden;
+  /* border рисуем через внутренний wrapper чтобы не светился при закрытом */
+}
+
+.accordion__content-inner {
+  border-top: 1.5px solid #000;
+}
+
+.accordion__content-inner button:focus{
+  scale: 1.02;
+  outline: 1px solid gray;
+}

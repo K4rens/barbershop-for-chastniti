@@ -1,0 +1,75 @@
+.barber-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.barber-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid #efefef;
+  transition: background 0.15s ease;
+}
+
+.barber-item:last-child {
+  border-bottom: none;
+}
+
+.barber-item:hover {
+  background: #f9f9f9;
+}
+
+.barber-item--selected {
+  background: #000 !important;
+}
+
+.barber-item--selected .barber-name,
+.barber-item--selected .barber-specialty,
+.barber-item--selected .barber-avatar {
+  color: #fff;
+  border-color: #555;
+}
+
+.barber-avatar {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #ddd;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Manrope", sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  flex-shrink: 0;
+  color: #555;
+}
+
+.barber-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.barber-name {
+  font-family: "Manrope", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #000;
+}
+
+.barber-specialty {
+  font-family: "Manrope", sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  color: #999;
+}
+
+.barber-check {
+  font-size: 13px;
+  color: #fff;
+}
