@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap");
 
-*, *::before, *::after {
-  
-}
-
 html, body {
   min-height: 100vh;
   background: #fff;
@@ -13,23 +9,21 @@ html, body {
 
 #root {
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 
 .page-main {
-  flex: 1;
+  width: 100%;
+  max-width: 520px;
   padding: 48px 20px 100px;
-  margin-left: calc(100vw / 2 * 0.7);
-  margin-top: calc(100vh / 2 * 0.4);
 }
 
-/* Центрирование через margin auto — самый надёжный способ */
 .panels {
-  width: 480px;
-  max-width: 100%;
+  width: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
   gap: 4px;
 }
@@ -61,4 +55,23 @@ html, body {
 .book-btn--active:hover {
   background: #000;
   color: #fff;
+}
+
+@media (max-width: 768px) {
+  .page-main {
+    padding: 32px 16px 80px;
+  }
+
+  .book-btn {
+    right: 16px;
+    bottom: 16px;
+    padding: 10px 20px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-main {
+    padding: 24px 12px 72px;
+  }
 }
