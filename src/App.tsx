@@ -209,7 +209,7 @@ export default function App() {
               }}
               onFocus={() => {
                 if (!form.clientPhone) {
-                  setForm((f) => ({ ...f, clientPhone: '+7' }));
+                  setForm((f) => ({ ...f, clientPhone: '+7 ' }));
                 }
               }}
               style={inputStyle}
