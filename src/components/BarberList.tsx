@@ -1,17 +1,11 @@
-// ─────────────────────────────────────────────────────────────
-// components/BarberList.tsx — реальные данные вместо моков
-// ─────────────────────────────────────────────────────────────
-
 import "./BarberList.css";
 import { useBarbers } from "../hooks/useBookingFlow";
 import type { Barber } from "../api/types";
 
 interface BarberListProps {
-  selected: string | null; // теперь UUID, не number
+  selected: string | null;
   onSelect: (id: string) => void;
 }
-
-// ── Скелетон-загрузка ────────────────────────────────────────
 
 function BarberSkeleton() {
   return (
@@ -40,12 +34,12 @@ function BarberSkeleton() {
   );
 }
 
-// ── Основной компонент ───────────────────────────────────────
+// Основной компонент
 
 export default function BarberList({ selected, onSelect }: BarberListProps) {
   const { data: barbers, isLoading, isError, error } = useBarbers();
 
-  // ── Состояние загрузки ──────────────────────────────────────
+  //  Состояние загрузки
   if (isLoading) {
     return (
       <ul className="barber-list">
@@ -54,7 +48,7 @@ export default function BarberList({ selected, onSelect }: BarberListProps) {
     );
   }
 
-  // ── Состояние ошибки ────────────────────────────────────────
+  // Состояние ошибки 
   if (isError) {
     return (
       <div className="barber-list-error">
@@ -66,7 +60,7 @@ export default function BarberList({ selected, onSelect }: BarberListProps) {
     );
   }
 
-  // ── Пустой список ───────────────────────────────────────────
+  // Пустой список 
   if (!barbers?.length) {
     return (
       <div className="barber-list-error">
@@ -75,7 +69,7 @@ export default function BarberList({ selected, onSelect }: BarberListProps) {
     );
   }
 
-  // ── Успешное состояние ──────────────────────────────────────
+  // Успешное состояние 
   return (
     <ul className="barber-list">
       {barbers.map((b: Barber) => {

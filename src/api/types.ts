@@ -1,16 +1,11 @@
-// ─────────────────────────────────────────────────────────────
-// types.ts — сгенерировано из OpenAPI спецификации Barber CRM
-// ─────────────────────────────────────────────────────────────
-
-// ── Barber ──────────────────────────────────────────────────
-
+// Barber 
 export interface Barber {
   barber_id: string; // uuid
   name: string;
   services: Service[];
 }
 
-// ── Service ─────────────────────────────────────────────────
+// Service
 
 export interface Service {
   service_id: string; // uuid
@@ -20,14 +15,14 @@ export interface Service {
   is_active: boolean;
 }
 
-// ── Slot ────────────────────────────────────────────────────
+//Slot 
 
 export type SlotStatus = "free" | "booked" | "blocked";
 
 export interface Slot {
   status: SlotStatus;
-  time_start: string; // ISO 8601 date-time
-  time_end: string; // ISO 8601 date-time
+  time_start: string; 
+  time_end: string; 
   booking?: SlotBooking; // присутствует только при status === 'booked'
 }
 
@@ -38,20 +33,20 @@ export interface SlotBooking {
   service_name: string;
 }
 
-// ── ScheduleDay ─────────────────────────────────────────────
+//ScheduleDay 
 
 export type PartOfDay = "am" | "pm";
 
 export interface ScheduleDay {
   schedule_day_id: string;
   barber_id: string;
-  date: string; // 'YYYY-MM-DD'
-  start_time: string; // 'HH:mm'
-  end_time: string; // 'HH:mm'
+  date: string; 
+  start_time: string; 
+  end_time: string; 
   part_of_day: PartOfDay;
 }
 
-// ── Booking ─────────────────────────────────────────────────
+// Booking 
 
 export type BookingStatus = "pending" | "completed" | "cancelled" | "no_show";
 
@@ -62,8 +57,8 @@ export interface Booking {
   service_name: string;
   client_name: string;
   client_phone: string;
-  time_start: string; // ISO 8601 date-time
-  time_end: string; // ISO 8601 date-time
+  time_start: string; 
+  time_end: string; 
   status: BookingStatus;
 }
 
