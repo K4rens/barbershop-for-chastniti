@@ -187,6 +187,7 @@ export default function BookingCalendar({
               onClick={() =>
                 day && !past && onSelectDate(new Date(year, month, day))
               }
+              className={`cal-day ${day && !past && !sel ? "cal-day--hoverable" : ""}`}
               style={{
                 height: 34,
                 display: "flex",
@@ -208,16 +209,6 @@ export default function BookingCalendar({
                   tod && !sel ? "1.5px solid #000" : "1.5px solid transparent",
                 transition: "all 0.15s ease",
                 userSelect: "none",
-              }}
-              onMouseEnter={(e) => {
-                if (day && !past && !sel)
-                  (e.currentTarget as HTMLElement).style.border =
-                    "1.5px solid #000";
-              }}
-              onMouseLeave={(e) => {
-                if (day && !past && !sel && !tod)
-                  (e.currentTarget as HTMLElement).style.border =
-                    "1.5px solid transparent";
               }}
             >
               {day ?? ""}

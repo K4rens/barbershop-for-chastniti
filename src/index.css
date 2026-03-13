@@ -33,6 +33,10 @@ h1 {
   line-height: 1.1;
 }
 
+.cal-day--hoverable:hover {
+  border: 1.5px solid #000 !important;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
